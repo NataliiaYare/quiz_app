@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz | Quiz App</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        // Quiz Questions
+        const quizData = [
+            {
+                question: "Who was the famous Scottish freedom fighter in the 1300s?",
+                options: ["William Wallace", "Robert Louis Stevenson", "Alexander Graham Bell", "Robert Burns"],
+                answer: "William Wallace"
+            },
+            {
+                question: "Which battle did Robert the Bruce win in 1314?",
+                options: ["Battle of Culloden", "Battle of Bannockburn", "Battle of Stirling Bridge", "Battle of Falkirk"],
+                answer: "Battle of Bannockburn"
+            },
+            {
+                question: "What is the Stone of Destiny used for?",
+                options: ["Playing games", "Writing stories", "Coronation of kings", "Building castles"],
+                answer: "Coronation of kings"
+            },
+            {
+                question: "Who was Mary, Queen of Scots?",
+                options: ["A singer", "A queen of England", "A Scottish queen", "A warrior"],
+                answer: "A Scottish queen"
+            },
+            {
+                question: "What is the name of the famous Scottish battle site from 1746?",
+                options: ["Glencoe", "Culloden", "Dunkirk", "Bannockburn"],
+                answer: "Culloden"
+            }
+        ];
+
+
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+
+
+        function updateDateTime() {
+            const now = new Date();
+            document.getElementById("datetime").textContent = now.toLocaleString();
+        }
+
+        setInterval(updateDateTime, 1000);
+        window.onload = updateDateTime;
+
+        function loadQuestion() {
+            if (currentQuestionIndex >= quizData.length) {
+                showFinalResult();
+                return;
+            }
+
+            const questionData = quizData[currentQuestionIndex];
+            document.getElementById("question").innerText = questionData.question;
+
+            let optionsHtml = "";
+            questionData.options.forEach(option => {
+                optionsHtml += `<button class="option" onclick="checkAnswer('${option}')">${option}</button>`;
+            });
+
+            document.getElementById("options").innerHTML = optionsHtml;
+        }
+
+        function checkAnswer(selectedAnswer) {
+            const questionData = quizData[currentQuestionIndex];
+            const feedbackElement = document.getElementById("feedback");
+
+            if (selectedAnswer === questionData.answer) {
+                score++;
+                feedbackElement.innerHTML = "Correct! ✅";
+                feedbackElement.style.color = "green";
+            } else {
+                feedbackElement.innerHTML = "Incorrect ❌";
+                feedbackElement.style.color = "red";
+            }
+
+            currentQuestionIndex++;
+            setTimeout(() => {
+                feedbackElement.innerHTML = "";
+                loadQuestion();
+            }, 1000);
+        }
+
+        function showFinalResult() {
+            document.getElementById("quiz-container").innerHTML = `
+                <h2>Quiz Completed!</h2>
+                <p>Your Score: <strong>${score} / ${quizData.length}</strong></p>
+                <p class="${score >= 3 ? 'pass-message' : 'fail-message'}">
+                    ${score >= 3 ? "Congratulations! You Passed 🎉" : "You Failed ❌. Try Again!"}
+                </p>
+                <button class="btn-retake-quiz" onclick="location.reload()">Retake Quiz</button>
+                <a href="welcome_page.html"><button class="btn-back-to-menu">Back to Menu</button></a>
+            `;
+        }
+
+        window.onload = loadQuestion;
+
+
+    </script>
+</head>
+
+<body>
+    <div class="quiz-box history">
+
+        <div class="header">
+            <!-- <a class="logo" href="./index.html">
+                <img src="./images/Quiz_logo 1.png" alt="quiz logotype">
+            </a> -->
+            <div class="datetime" id="datetime"></div>
+        </div>
+        <div class="quiz-container" id="quiz-container">
+            <img src="images/animal-15711_256.gif" alt="Animated character"
+                style="max-width: 100%; height: auto; border-radius: 12px; margin-bottom: 10px;">
+            <h2 id="question">Loading question...</h2>
+
+            <div id="options"></div>
+            <p id="feedback"></p>
+        </div>
+
+        <!-- Characters -->
+        <div class="characters">
+            <img src="images/cat_with_everything.png" alt="Apple Character" class="character-left">
+            <img src="images/soc_aw.png" alt="Pencil Character" class="character-right">
+        </div>
+
+    </div>
+</body>
+
+</html>

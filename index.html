@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web App</title>
+    <link rel="stylesheet" href="style.css">
+
+    <script>
+        function loginUser() {
+            const userName = document.getElementById("username").value.trim();
+            const password = document.getElementById("password").value.trim();
+
+            // Check if username and password are correct
+            if (userName === "Nata" && password === "Nata") {
+                window.location.href = `welcome_page.html?name=${encodeURIComponent(userName)}`; // Passes name in URL
+            } else {
+                alert("Incorrect username or password. Try again!");
+            }
+        }
+
+        function updateDateTime() {
+            const now = new Date();
+            document.getElementById("datetime").textContent = now.toLocaleString();
+        }
+
+        setInterval(updateDateTime, 1000);
+        window.onload = updateDateTime;
+    </script>
+</head>
+
+<body>
+    <div class="background">
+        <!-- Header Section -->
+        <div class="header">
+            <a class="logo" href="./index.html">
+                <img src="./images/Quiz_logo 1.png" alt="quiz logotype">
+            </a>
+            <div class="datetime" id="datetime"></div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main">
+            <!-- Login Form -->
+            <div class="login-form">
+                <h1>Hey there, adventurers! Dive into the wonders of QUIZ!</h1>
+                <h2>Log In to explore our cool quizzes, learn tons, and challenge yourself.</h2>
+                <input class="yellow-accent" type="text" id="username" placeholder="Enter your name">
+                <input class="transparent" type="password" id="password" placeholder="Enter your password">
+                <button onclick="loginUser()">Log In</button>
+            </div>
+
+            <!-- Image Section -->
+            <div class="image-container">
+                <img src="./images/cat_with_everything.png" alt="Cat in a hat">
+            </div>
+        </div>
+
+        <!-- Footer Section -->
+        <div class="footer">
+            <div class="soc-icons">
+                <div class="soc-box">
+                    <a href="https://www.facebook.com/p/Kids-Learning-100076268971911/?locale=en_GB" target="_blank">
+                        <svg class="icon">
+                            <use xlink:href="./images/sprite.svg#icon-facebook"></use>
+                        </svg>
+                    </a>
+                </div>
+                <div class="soc-box">
+                    <a href="https://www.instagram.com/big_fat_greekmother/reel/DDPqrZEMAqD/" target="_blank">
+                        <svg class="icon">
+                            <use xlink:href="./images/sprite.svg#icon-instagram"></use>
+                        </svg>
+                    </a>
+                </div>
+                <div class="soc-box">
+                    <a href="https://www.youtube.com/playlist?list=PLiMIqKsOLxPw8yuWZqzOMgqreWv3LqR1M" target="_blank">
+                        <svg>
+                            <use xlink:href="./images/sprite.svg#icon-youtube"></use>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

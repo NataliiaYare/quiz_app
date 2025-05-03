@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Numeracy Quiz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="quiz-container">
+        <div class="header">
+            <h1>Basic Numeracy Quiz</h1>
+            <div class="time" id="time"></div>
+        </div>
+
+        <div class="quiz-box">
+            <p class="question" id="question">What is 5 + 3?</p>
+            <div class="options">
+                <button class="option" onclick="checkAnswer(5)">5</button>
+                <button class="option" onclick="checkAnswer(8)">8</button>
+                <button class="option" onclick="checkAnswer(6)">6</button>
+                <button class="option" onclick="checkAnswer(7)">7</button>
+            </div>
+            <button class="next-btn" onclick="nextQuestion()">Next Question</button>
+        </div>
+
+        <div class="characters">
+            <div class="character apple">🍎</div>
+            <div class="character pencil">✏️</div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

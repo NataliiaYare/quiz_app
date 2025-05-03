@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome | Quiz App</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function updateDateTime() {
+            const now = new Date();
+            document.getElementById("datetime").textContent = now.toLocaleString();
+        }
+
+        setInterval(updateDateTime, 1000);
+        window.onload = updateDateTime;
+
+        function getUserNameFromURL() {
+            const params = new URLSearchParams(window.location.search);
+            return params.get("name") || "Adventurer"; // Default to "Adventurer" if name is missing
+        }
+
+        function displayUserName() {
+            document.getElementById("user-name").textContent = getUserNameFromURL();
+        }
+
+        window.onload = displayUserName;
+    </script>
+</head>
+
+<body>
+    <div class="welcome-container">
+
+        <!-- Header Section -->
+        <div class="header">
+            <a class="logo" href="./index.html">
+                <img src="./images/Quiz_logo 1.png" alt="quiz logotype">
+            </a>
+            <div class="datetime" id="datetime"></div>
+        </div>
+        <!-- 
+        <div class="cloud-container">
+            <img src="./images/cloud_left.png" alt="Cloud">
+        </div> -->
+
+        <!-- Main Content -->
+
+        <div class="welcome-box">
+
+            <h1 class="welcome-message">WELCOME, <div class="welc-box"><img src="./images/flowers-aster 1.png"
+                        alt="flower"><span id="user-name">Adventurer</span><img src="./images/flowers-aster 1.png"
+                        alt="flower"></div>
+            </h1>
+            <h2>Get ready to take on exciting quizzes and test your knowledge!</h2>
+            <p class="choose-paragraph">Choose a topic, have fun, and see how much you know! 🌟</p>
+
+            <div class="quiz-selection">
+                <div class="quiz-item-container">
+                    <a href="./quiz_page_literacy.html">
+                        <div class="quiz-item">
+                            <img src="./images/literacy-2.png" alt="Basic Literacy">
+                        </div>
+                        <p>Basic Literacy</p>
+                    </a>
+                </div>
+                <div class="quiz-item-container">
+                    <a href="quiz_page_numeracy.html">
+                        <div class="quiz-item">
+                            <img src="./images/numeracy-3.png" alt="Basic Numeracy">
+                        </div>
+                        <p>Basic Numeracy</p>
+                    </a>
+                </div>
+                <div class="quiz-item-container">
+                    <a href="./quiz_page_health.html">
+                        <div class="quiz-item">
+                            <img src="./images/health.png" alt="Health/Wellbeing">
+                        </div>
+                        <p>Health/Wellbeing</p>
+                    </a>
+                </div>
+                <div class="quiz-item-container">
+                    <a href="./quiz_page_soc_awar.html">
+                        <div class="quiz-item">
+                            <img src="./images/soc_aw.png" alt="Social Awareness">
+                        </div>
+                        <p>Social Awareness</p>
+                    </a>
+                </div>
+                <div class="quiz-item-container">
+                    <a href="./quiz_page_history.html">
+                        <div class="quiz-item">
+                            <img src="./images/history-2.png" alt="Scottish History">
+                        </div>
+                        <p>Scottish History</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- Footer Section -->
+        <div class="footer">
+            <div class="soc-icons">
+                <div class="soc-box">
+                    <a href="https://www.facebook.com/p/Kids-Learning-100076268971911/?locale=en_GB" target="_blank">
+                        <svg class="icon">
+                            <use xlink:href="./images/sprite.svg#icon-facebook"></use>
+                        </svg>
+                    </a>
+                </div>
+                <div class="soc-box">
+                    <a href="https://www.instagram.com/big_fat_greekmother/reel/DDPqrZEMAqD/" target="_blank">
+                        <svg class="icon">
+                            <use xlink:href="./images/sprite.svg#icon-instagram"></use>
+                        </svg>
+                    </a>
+                </div>
+                <div class="soc-box">
+                    <a href="https://www.youtube.com/playlist?list=PLiMIqKsOLxPw8yuWZqzOMgqreWv3LqR1M" target="_blank">
+                        <svg>
+                            <use xlink:href="./images/sprite.svg#icon-youtube"></use>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
