@@ -312,6 +312,11 @@ input {
 .welc-box {
   display: flex;
   align-items: center;
+  justify-content: center;
+}
+
+.welc-box img {
+  width: 60px;
 }
 
 .option:hover {
