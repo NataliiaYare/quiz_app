@@ -1,4 +1,4 @@
-w {
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
@@ -8,7 +8,7 @@ w {
 html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
-  font-size: 26px;
+  font-size: 12px;
 }
 
 a {
@@ -23,6 +23,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 0;
 }
 
 a {
@@ -44,8 +45,8 @@ img {
   height: 100vh;
   width: 100%;
   background: linear-gradient(to bottom, #6e59fb, #413595);
-  font-weight: 100;
-  font-size: 20px;
+  /* font-weight: 100; */
+  /* font-size: 20px; */
   padding: 24px;
   background-size: cover;
   background-repeat: no-repeat;
@@ -68,7 +69,7 @@ h2 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* padding: 10px 20px; */
+  padding: 20px 20px;
 }
 
 .logo {
@@ -134,7 +135,7 @@ h2 {
 }
 
 .image-container img {
-  width: 1000px;
+  width: 100%;
   height: auto;
   /* width: -webkit-fill-available; */
 }
